@@ -1,8 +1,8 @@
 {
-  "name": "server",
+  "name": "todo",
   "version": "1.0.0",
   "description": "To do app with authentication",
-  "main": "server.js",
+  "main": "index.js",
   "scripts": {
     "server": "nodemon server.js --ignore 'client /'"
   },

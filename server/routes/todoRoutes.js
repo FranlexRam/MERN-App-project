@@ -1,5 +1,5 @@
 const express = require('express');
-const {getTodosController, createTodoController, editTodoController, deleteTodoController, searchTodoController} = require('../controller/todoControllers');
+const { getTodosController, createTodoController, editTodoController, deleteTodoController, searchTodoController } = require('../controller/todoControllers');
 const userAuth = require('../middleware/userAuth')
 
 const router = express.Router();
