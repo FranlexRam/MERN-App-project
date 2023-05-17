@@ -15,16 +15,17 @@
 //     (err) => {
 //         if(err) throw err;
 //         console.log("DB Connected");
+
+//         const PORT = 4000;
+//         app.listen(PORT, () =>{
+//             console.log("Server is active");
+//         });
 //     }
 // );
 
-// //mw
+//mw
 
-// //ROUTES
-// const PORT = 4000;
-// app.listen(PORT, () =>{
-//     console.log("Server is active");
-// })
+//ROUTES
 
 
 const express = require('express')
