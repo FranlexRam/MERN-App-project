@@ -6,7 +6,7 @@ import { Link, useNavigate } from 'react-router-dom';
 
 const SignUp = () => {
     const [cookies, setCookie] = useCookies();
-    // console.log(cookies)
+    console.log(cookies)
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -46,9 +46,12 @@ const SignUp = () => {
 
 
     return (
-        <div className='flex flex-col justify-center items-center h-[100vh] w-full bg-[#191920] text-[#bbbabf]'>
-
+        
+        <div className='flex flex-col justify-center items-center h-[100vh] w-full bg-[#191920] text-[#bbbabf] authlayout'>
             <div className='w-[70%]'>
+                {/* <div className="authlayout_logo">
+                    <img src="./assets/img/shuttle.svg" alt="logo" />
+                </div> */}
                 <h1 className='text-center text-[3rem] font-bold my-6'>
                     Sign Up
                 </h1>

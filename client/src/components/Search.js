@@ -18,7 +18,7 @@ const Search = () => {
 
     const handleOnchange = async(e)=>{
         setSearch(e.target.value)
-        // console.log(search)
+        console.log(search)
 
     }
 
@@ -30,7 +30,7 @@ const Search = () => {
         }
     })
 
-    // console.log(res)
+    console.log(res)
     if(res.data.todos.length===0){
       toast.error("no such todo or task exists")
       return;

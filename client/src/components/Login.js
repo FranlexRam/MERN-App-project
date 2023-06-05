@@ -1,3 +1,6 @@
+// 
+
+
 import axios from 'axios';
 import React, { useContext, useState } from 'react'
 import {toast} from 'react-hot-toast'
@@ -49,9 +52,9 @@ const Login = () => {
             }
           
 
-            // setCookieState(cookies)
-            // if(res.data.token){
-            // }
+            setCookieState(cookies)
+            if(res.data.token){
+            }
 
                 
 
