@@ -30,13 +30,13 @@ const TaskState = (props)=>{
             headers
         });
         const newTasks = res.data.todo.tasks.slice();
-        // setTasks(res.data.savedTask.tasks.slice())
+        //setTasks(res.data.savedTask.tasks.slice())
         setTasks(newTasks)
     }
 
     // check task
     const checkTask = async(todoId, taskId)=>{
-        console.log(headers)
+        //console.log(headers)
         const res = await axios.put(`${process.env.REACT_APP_API}/checkTask/${todoId}/${taskId}`,{},{
             headers
         })
