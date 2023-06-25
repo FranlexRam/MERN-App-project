@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const uri = process.env.DB_URL;
 
-exports.connectToDb = ()=> {
+exports.connectToDb = ()=>{
     mongoose.connect(uri,{
         useNewUrlParser:true,
         useUnifiedTopology:true
@@ -9,7 +9,7 @@ exports.connectToDb = ()=> {
     .then((conn)=>{
         console.log(`connected to db: ${conn.connection.name}`);
     })
-    .catch(err =>{
+    .catch(err=>{
         console.log(err.message);
     })
 }

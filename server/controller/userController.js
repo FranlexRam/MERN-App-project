@@ -5,7 +5,7 @@ const jwt = require('jsonwebtoken');
 // sign up 
 exports.createUserController = async (req, res) => {
     try {
-        
+
         const { name, email, password } = req.body;
         const user = await User.findOne({ email });
         if (user)
@@ -20,6 +20,7 @@ exports.createUserController = async (req, res) => {
             password: encryptedPassword,
 
         })
+        console.log(newUser);
 
         const data = {
             id: newUser._id
@@ -31,7 +32,7 @@ exports.createUserController = async (req, res) => {
         cratedUser.password=undefined
 
 
-        res.status(200).cookie('token', token, {
+      res.status(200).cookie('token', token, {
             expires: new Date(Date.now() + 3 * 24 * 60 * 60 * 1000),
             httpOnly: false
         }).json({
@@ -39,7 +40,7 @@ exports.createUserController = async (req, res) => {
             token,
             cratedUser
         });
-    } 
+    }
     catch (err) {
         res.status(401).json({
             success: false,
@@ -58,7 +59,7 @@ exports.loginUserController = async (req, res) => {
         if (!isEmailExists)
             throw new Error("no such email found please sign up");
 
-            const user = await User.findOne({ email });
+        const user = await User.findOne({ email });
         // console.log(user)
         const comparePassword = await bcrypt.compare(password, user.password);
 
@@ -88,14 +89,14 @@ exports.loginUserController = async (req, res) => {
         res.status(401).json({
             success: false,
             message: err.message,
-        })    
+        })
     }
 }
 
 
-//get user
-exports.getUserController = async (req, res) => {
-    try {
+// get user 
+exports.getUserController = async(req,res)=>{
+    try{
         const user = await User.findById(req.user.user_id);
         if(!user)
         throw new Error("no such user exists");
@@ -105,11 +106,11 @@ exports.getUserController = async (req, res) => {
             user
         })
 
-    } 
+    }
     catch (err) {
         res.status(401).json({
             success: false,
             message: err.message,
-        })    
+        })
     }
 }
