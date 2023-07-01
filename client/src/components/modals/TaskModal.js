@@ -58,8 +58,8 @@ const TaskModal = ({setShowTaskModal}) => {
        <div>
         <label className='text-[20px] sm:text-[2rem] text-white font-bold' htmlFor="title">Task:</label>
         <br/>
-        <input onKeyUp={handleKeyUp} onChange={handleOnChange} className='w-[230px] sm:w-[650px] mt-10 py-2 pl-3 rounded-xl' name='title' id='title' type="text" />
-        <input onKeyUp={handleKeyUp} onChange={handleOnChangeDesc} className='w-[230px] sm:w-[650px] mt-10 py-2 pl-3 rounded-xl' name='description' id='description' type="text" />
+        <input onKeyUp={handleKeyUp} onChange={handleOnChange} className='w-[230px] sm:w-[650px] mt-10 py-2 pl-3 rounded-xl' name='title' id='title' type="text" placeholder='Task title'/>
+        <input onKeyUp={handleKeyUp} onChange={handleOnChangeDesc} className='w-[230px] sm:w-[650px] mt-10 py-2 pl-3 rounded-xl' name='description' id='description' type="text" placeholder='Please describe your task'/>
         </div>
         <div className='flex text-white justify-end gap-3 mt-2 text-[14px] sm:text-[18px]'>
             <button onClick={handleDone} className='px-6 py-1 rounded-lg bg-[#FD77A1] duration-200 ease-in-out hover:bg-[#ac2e56]'>
