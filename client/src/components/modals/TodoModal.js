@@ -73,7 +73,7 @@ const TodoModal = ({setShowTodoModal}) => {
                 Done
             </button>
             <button onClick={handleCancle} className='px-6 py-1 rounded-lg bg-[#87898b] duration-200 ease-in-out hover:bg-[#363637]'>
-                Cancle
+                Cancel
             </button>
         </div>
        </div>

@@ -9,6 +9,7 @@ const TaskModal = ({setShowTaskModal}) => {
     const taskContext = useContext(TaskContext);
     const {addTask} = taskContext;
     const [task, setTask] = useState("");
+    const [description, setDescription] = useState("");
 
     const todoId = useParams();
 
@@ -22,7 +23,7 @@ const TaskModal = ({setShowTaskModal}) => {
       }
         
         setShowTaskModal(false);
-        addTask(todoId.todoId, task);
+        addTask(todoId.todoId, {task, description});
         toast.success("TASK Added successfully")
 
 
@@ -43,6 +44,11 @@ const TaskModal = ({setShowTaskModal}) => {
         handleDone()
     }
 
+    const handleOnChangeDesc = (e)=>{
+      setDescription(e.target.value);
+  }
+
+
   return (
     <>
     <div onClick={handleCancle} className='bg-[#161622] opacity-[.85] absolute top-0 h-[95vh] flex justify-center items-center w-full z-[2] ' >
@@ -53,13 +59,14 @@ const TaskModal = ({setShowTaskModal}) => {
         <label className='text-[20px] sm:text-[2rem] text-white font-bold' htmlFor="title">Task:</label>
         <br/>
         <input onKeyUp={handleKeyUp} onChange={handleOnChange} className='w-[230px] sm:w-[650px] mt-10 py-2 pl-3 rounded-xl' name='title' id='title' type="text" />
+        <input onKeyUp={handleKeyUp} onChange={handleOnChangeDesc} className='w-[230px] sm:w-[650px] mt-10 py-2 pl-3 rounded-xl' name='description' id='description' type="text" />
         </div>
         <div className='flex text-white justify-end gap-3 mt-2 text-[14px] sm:text-[18px]'>
             <button onClick={handleDone} className='px-6 py-1 rounded-lg bg-[#FD77A1] duration-200 ease-in-out hover:bg-[#ac2e56]'>
                 Done
             </button>
             <button onClick={handleCancle} className='px-6 py-1 rounded-lg bg-[#87898b] duration-200 ease-in-out hover:bg-[#363637]'>
-                Cancle
+                Cancel
             </button>
         </div>
        </div>

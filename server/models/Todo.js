@@ -13,6 +13,7 @@ const ToDoSchema = new mongoose.Schema({
     },
     tasks:[{
         main: String,
+        description: String,
         checked:{
             type:Boolean,
             default:false,

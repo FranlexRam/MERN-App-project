@@ -62,6 +62,7 @@ const TaskCard = ({task, setShowEditTaskModal, setTaskIdforEdit}) => {
             }
         </h4>
            </div>
+           <p>{task?.description}</p>
         </div>
 
             <div className='flex text-white gap-6 font-bold mx-3'>

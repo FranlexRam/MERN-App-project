@@ -12,6 +12,8 @@ const TaskModal = ({setShowEditTaskModal, taskIdforEdit}) => {
     const taskContext = useContext(TaskContext);
     const {editTask} = taskContext;
     const [task, setTask] = useState(taskIdforEdit.main);
+    const [description, setDescription] = useState(taskIdforEdit.description);
+
     const todoId = useParams();
 
     const handleDone = ()=>{
@@ -29,7 +31,8 @@ const TaskModal = ({setShowEditTaskModal, taskIdforEdit}) => {
         
         setShowEditTaskModal(false);
         editTask(todoId.todoId, taskIdforEdit._id, {
-            main:task
+            main:task,
+            description: description
         });
         
         toast.success("Task EDITED successfully")
@@ -49,6 +52,10 @@ const TaskModal = ({setShowEditTaskModal, taskIdforEdit}) => {
         handleDone()
     }
 
+    const handleOnChangeDesc = (e)=>{
+      setDescription(e.target.value);
+  }
+
   return (
     <>
     <div onClick={handleCancle} className='bg-[#161622] opacity-[.85] absolute top-0 h-[95vh] flex justify-center items-center w-full z-[2] ' >
@@ -59,13 +66,14 @@ const TaskModal = ({setShowEditTaskModal, taskIdforEdit}) => {
         <label className='text-[20px] sm:text-[2rem] text-white font-bold' htmlFor="title">Edit Task:</label>
         <br/>
         <input value={task} onKeyUp={handleKeyUp} onChange={handleOnChange} className='w-[230px] sm:w-[650px] mt-10 py-2 pl-3 rounded-xl' name='title' id='title' type="text" />
+        <input value={description} onKeyUp={handleKeyUp} onChange={handleOnChangeDesc} className='w-[230px] sm:w-[650px] mt-10 py-2 pl-3 rounded-xl' name='description' id='description' type="text" />
         </div>
         <div className='flex text-white justify-end gap-3 mt-2 text-[14px] sm:text-[18px]'>
             <button onClick={handleDone} className='px-6 py-1 rounded-lg bg-[#FD77A1] duration-200 ease-in-out hover:bg-[#ac2e56]'>
                 Done
             </button>
             <button onClick={handleCancle} className='px-6 py-1 rounded-lg bg-[#87898b] duration-200 ease-in-out hover:bg-[#363637]'>
-                Cancle
+                Cancel
             </button>
         </div>
        </div>

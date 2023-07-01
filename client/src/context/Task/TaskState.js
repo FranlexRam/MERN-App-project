@@ -23,9 +23,10 @@ const TaskState = (props)=>{
     }
 
     // add task 
-    const addTask = async(todoId, task)=>{
+    const addTask = async(todoId, {task, description})=>{
         const res = await axios.put(`${process.env.REACT_APP_API}/addTask/${todoId}`, {
-            main: task
+            main: task,
+            description,
         },{
             headers
         });

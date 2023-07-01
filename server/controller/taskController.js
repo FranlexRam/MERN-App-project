@@ -38,7 +38,7 @@ exports.addTaskController = async (req, res)=>{
         const todo = await Todo.findById(todoId);
 
         // inserting task 
-        todo.tasks.push({main: req.body.main, taskupdatedAt:new Date()});
+        todo.tasks.push({main: req.body.main, description: req.body.description, taskupdatedAt:new Date()});
         const savedTask = await Todo.findByIdAndUpdate(todoId, todo);
         res.status(200).json({
             success: true,
