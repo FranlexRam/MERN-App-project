@@ -19,9 +19,28 @@ const TaskCard = ({task, setShowEditTaskModal, setTaskIdforEdit}) => {
       setIsLoading(false)
     }, 2000);
 
-    //Adding delete confirmation
-    let sign = prompt("What's your sign?");
+    //******Adding delete confirmation
 
+    // Swal.fire({
+    //   title: 'Are you sure?',
+    //   text: "You won't be able to revert this!",
+    //   icon: 'warning',
+    //   showCancelButton: true,
+    //   confirmButtonColor: '#3085d6',
+    //   cancelButtonColor: '#d33',
+    //   confirmButtonText: 'Yes, delete it!'
+    // }).then((result) => {
+    //   if (result.isConfirmed) {
+    //     deleteTask(todoId.todoId, task._id)
+    //     Swal.fire(
+    //       'Deleted!',
+    //       'Your file has been deleted.',
+    //       'success'
+    //     )
+    //   }
+    // })
+
+    let sign = prompt("Are You sure You want to delete task?");
     if (sign) {
       deleteTask(todoId.todoId, task._id)
     }
