@@ -19,7 +19,14 @@ const TaskCard = ({task, setShowEditTaskModal, setTaskIdforEdit}) => {
       setIsLoading(false)
     }, 2000);
 
-    deleteTask(todoId.todoId, task._id)
+    //Adding delete confirmation
+    let sign = prompt("What's your sign?");
+
+    if (sign) {
+      deleteTask(todoId.todoId, task._id)
+    }
+
+
   }
 
   const handleCheck = ()=>{

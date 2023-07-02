@@ -130,6 +130,7 @@ exports.editTaskController = async (req, res)=>{
         const updatedTasks = todo.tasks.map(e=>{
             if(e._id==taskId){
                 e.main = req.body.main;
+                e.description = req.body.description;
                 e.taskupdatedAt = new Date()
                 return e;
             }

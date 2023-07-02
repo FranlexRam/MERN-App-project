@@ -55,6 +55,7 @@ const TaskState = (props)=>{
         console.log(res);
         const newTasks = res.data.todo.tasks.slice();
         setTasks(newTasks);
+        console.log(editedPart);
     }
 
     // delete task 
