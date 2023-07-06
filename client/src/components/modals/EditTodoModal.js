@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react'
 import SpinnerContext from '../../context/Spinner/SpinnerContext';
 import TodoContext from '../../context/Todo/TodoContext';
+import {toast} from 'react-hot-toast';
 
 const EditTodoModal = ({setShowEditTodoModal, todoToEdit}) => {
     // console.log(todoToEdit)
@@ -31,6 +32,7 @@ const EditTodoModal = ({setShowEditTodoModal, todoToEdit}) => {
             color
         })
         setShowEditTodoModal(false);
+        toast.success("Todo EDITED successfully")
       
     }
 

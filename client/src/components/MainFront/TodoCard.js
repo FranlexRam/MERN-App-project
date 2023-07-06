@@ -15,6 +15,7 @@ const TodoCard = ({todo, setShowEditTodoModal, todoToEdit}) => {
   const taskContext = useContext(TaskContext);
   const{setTasks} = taskContext;
   const {deleteTodo} = todoContext;
+  const Swal = require('sweetalert2');
 
   const handleClickOnTodo = ()=>{
     navigate(`/${todo._id}/${todo.title}`);
@@ -28,15 +29,37 @@ const TodoCard = ({todo, setShowEditTodoModal, todoToEdit}) => {
     }, 2000);
     console.log("in todo display useeffect")
 
-    deleteTodo(todoId);
+    // deleteTodo(todoId);
     console.log("first")
-    toast.success("TODO DELETED successfully")
+    // toast.success("TODO DELETED successfully")
+
+    //******Adding delete alert
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        deleteTodo(todoId);
+        Swal.fire(
+          'Deleted!',
+          'Your file has been deleted.',
+          'success'
+        )
+      }
+    })
+
 
   }
 
   const handleEdit = ()=>{
     
     setShowEditTodoModal(true)
+    console.log(setShowEditTodoModal);
     todoToEdit.current = todo;
 
   }
